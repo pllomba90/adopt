@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %} Adoption Agency {% endblock %}
+
+{% block content %}
+<div class="container d-flex flex-wrap justify-content-center">
+<h1>Our Pets</h1>
+</div>
+<div class="container d-flex justify-content-center">
+{% for pet in pets %}
+<div class="card " style="width: 18rem;">
+    <img src="{{ pet.photo_url }}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ pet.name }}</h5>
+      <p class="card-text">I am a {{ pet.species }} and I am {{ pet.age }} years old.</p>
+      <a href="/{{ pet.id }}" class="btn btn-primary">More Information</a>
+    </div>
+  </div>
+  {% endfor %}
+
+</div>
+{% endblock %}

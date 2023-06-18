@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %} {{pet.name}} {% endblock %}
+
+{% block content %}
+<h1 class="display-1"> {{ pet.name }} </h1>
+<div class="container-md">
+<img src="{{ pet.photo_url }}" alt="">
+</div>
+<hr>
+<p> {{ pet.notes }}</p>
+<ul>
+    <li>{{ pet.age }} </li>
+    <li>{{ pet.species }}</li>
+    {% if pet.available == True %}
+    <li> Available </li>
+    {% endif %}
+</ul>
+<form action="/delete_pet/{{ pet.id }}" method="post">
+    <button class="btn btn-danger">Delete</button>
+</form>
+<a href="/{{ pet.id }}/edit" class="btn btn-info">Edit</a>
+{% endblock %}
